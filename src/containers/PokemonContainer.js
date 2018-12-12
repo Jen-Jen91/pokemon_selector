@@ -9,13 +9,17 @@ class PokemonContainer extends Component {
     super(props);
     this.state = {
       pokemon: [],
-      currentPokemon: null
+      currentPokemon: []
     }
     this.handlePokemonSelected = this.handlePokemonSelected.bind(this);
   }
 
   componentDidMount() {
-    const url = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+    this.loadAllPokemon('https://pokeapi.co/api/v2/pokemon/?limit=151');
+  }
+
+  loadAllPokemon(url) {
+    // const url = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.onload = () => {
@@ -29,8 +33,26 @@ class PokemonContainer extends Component {
   }
 
   handlePokemonSelected(index) {
-    const selectedPokemon = this.state.pokemon[index];
-    this.setState({currentPokemon: selectedPokemon});
+    // const selectedPokemon = this.state.pokemon[index];
+    // this.setState({currentPokemon: selectedPokemon});
+    let pokedex = parseInt(index) + 1;
+    this.loadOnePokemon('https://pokeapi.co/api/v2/pokemon/' + pokedex + '/');
+  }
+
+  loadOnePokemon(url) {
+    // const url = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+    const request = new XMLHttpRequest();
+    request.open('GET', url);
+    // request.mode = 'no-cors';
+    request.onload = () => {
+      if (request.status === 200) {
+        const jsonString = request.responseText;
+        const data = JSON.parse(jsonString);
+        const info = [data.name, data.order, data.height, data.weight, data.sprites.front_default]
+        this.setState({currentPokemon: info});
+      }
+    }
+    request.send();
   }
 
   render() {
