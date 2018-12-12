@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = (props) => {
   return(
-    <h1>Original 151 Pokemon</h1>
+    <h1 className="title">Original 151 Pokemon</h1>
   );
 }
 
