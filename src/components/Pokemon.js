@@ -6,12 +6,15 @@ const Pokemon = (props) => {
 
   const altTag = "Picture of " + props.pokemon[0];
 
+  const height = props.pokemon[2] / 10;
+  const weight = props.pokemon[3] / 10;
+
   return(
-    <div>
+    <div className="pokemon-details">
       <h3>{props.pokemon[0]}</h3>
       <p>Pokedex Entry: {props.pokemon[1]}</p>
-      <p>Height: {props.pokemon[2]}</p>
-      <p>Weight: {props.pokemon[3]}</p>
+      <p>Height: {height}m</p>
+      <p>Weight: {weight}kg</p>
       <img src={props.pokemon[4]} alt={altTag}/>
     </div>
   );
