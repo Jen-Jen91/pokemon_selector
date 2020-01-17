@@ -52,7 +52,7 @@ class PokemonContainer extends Component {
 
   render() {
     return(
-      <div>
+      <div className="mainContainer">
         <Title />
         <PokemonSelector pokemon={this.state.pokemon} onPokemonSelected={this.handlePokemonSelected}/>
         <Pokemon pokemon={this.state.currentPokemon}/>

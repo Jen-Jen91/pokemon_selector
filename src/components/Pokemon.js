@@ -17,16 +17,25 @@ const Pokemon = (props) => {
   });
 
   return(
-    <div className="pokemon-details">
-      <h3>{props.pokemon[0]}</h3>
-      <p>Height: {height}m</p>
-      <p>Weight: {weight}kg</p>
-      <img src={props.pokemon[3]} alt={altTag} className="pokemon-image"/>
+    <main className="pokemonDetails">
+      <h3 className="name">{props.pokemon[0]}</h3>
+
+      <section className="basicInfoContainer">
+        <div className="basicInfo">
+          <p>Height: {height}m</p>
+          <p>Weight: {weight}kg</p>
+        </div>
+      
+        <div className="pokemonImageContainer">
+          <img src={props.pokemon[3]} alt={altTag} className="pokemonImage"/>
+        </div>
+      </section>
+
       <p>Type:</p>
         <ul>{types}</ul>
       <p>Moves:</p>
         <ul>{moves}</ul>
-    </div>
+    </main>
   );
 }
 
