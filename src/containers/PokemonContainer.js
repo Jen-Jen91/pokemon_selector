@@ -19,7 +19,6 @@ class PokemonContainer extends Component {
   }
 
   loadAllPokemon(url) {
-    // const url = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.onload = () => {
@@ -33,17 +32,13 @@ class PokemonContainer extends Component {
   }
 
   handlePokemonSelected(index) {
-    // const selectedPokemon = this.state.pokemon[index];
-    // this.setState({currentPokemon: selectedPokemon});
     let pokedex = parseInt(index) + 1;
     this.loadOnePokemon('https://pokeapi.co/api/v2/pokemon/' + pokedex + '/');
   }
 
   loadOnePokemon(url) {
-    // const url = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
     const request = new XMLHttpRequest();
     request.open('GET', url);
-    // request.mode = 'no-cors';
     request.onload = () => {
       if (request.status === 200) {
         const jsonString = request.responseText;
