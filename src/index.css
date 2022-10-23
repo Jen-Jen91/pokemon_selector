@@ -1,11 +1,12 @@
 @font-face {
-  font-family: 'PokemonGB';
-  src: local('PokemonGB'), url(./fonts/PokemonGb.ttf) format('truetype');
+  font-family: "PokemonGB";
+  src: local("PokemonGB"), url(./fonts/PokemonGb.ttf) format("truetype");
 }
 
 body {
-  font-family: PokemonGB, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-image: url('./images/Background.png');
+  font-family: PokemonGB, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-image: url("./images/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
